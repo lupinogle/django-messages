@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 from django.views.generic.simple import redirect_to
 
 from django_messages.views import *
