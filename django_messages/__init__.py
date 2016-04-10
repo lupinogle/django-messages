@@ -19,7 +19,7 @@ def _get_backend(full_backend_path):
     module, attr = full_backend_path.rsplit('.', 1)
     try:
         mod = importlib.import_module(module)
-    except ImportError, e:
+    except ImportError as e:
         raise ImproperlyConfigured('Error importing module %s: "%s"' %
                                    (module, e))
     try:
