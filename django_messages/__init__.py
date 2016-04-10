@@ -1,3 +1,5 @@
+# coding: utf-8
+from __future__ import (absolute_import, division, print_function, unicode_literals)
 import pkg_resources
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
@@ -5,14 +7,16 @@ from django.utils import importlib
 
 __version__ = pkg_resources.resource_string('django_messages', 'version.txt').strip()
 
-def _version_tuple(__version__):
-    versions = __version__.split('-')
+
+def _version_tuple(version):
+    versions = version.split('-')
     numversions = map(int, versions[0].split('.'))
     return tuple(numversions + versions[1:])
 VERSION = _version_tuple(__version__)
 
 BACKEND = getattr(settings, 'MESSAGES_BACKEND',
                   'django_messages.backends.username.UsernameBackend')
+
 
 def _get_backend(full_backend_path):
     from django_messages.backends import BaseMessageBackend
