@@ -24,7 +24,7 @@ def _get_backend(full_backend_path):
                                    (module, e))
     try:
         Backend = getattr(mod, attr)
-    except AttributeError, e:
+    except AttributeError as e:
         raise ImproperlyConfigured('Module "%s" does not define a "%s" '
                                    'class.' % (module, attr))
 
