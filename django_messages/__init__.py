@@ -11,7 +11,7 @@ __version__ = pkg_resources.resource_string('django_messages', 'version.txt').st
 def _version_tuple(version):
     versions = version.split('-')
     numversions = map(int, versions[0].split('.'))
-    return tuple(numversions + versions[1:])
+    return tuple(numversions) + tuple(versions[1:])
 VERSION = _version_tuple(__version__)
 
 BACKEND = getattr(settings, 'MESSAGES_BACKEND',
