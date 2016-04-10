@@ -22,12 +22,12 @@ class ProfilenameBackend(BaseMessageBackend):
         
         try:
             mod = importlib.import_module(module)
-        except ImportError, e:
+        except ImportError as e:
             raise ImproperlyConfigured('Error importing module %s: "%s"' %
                                        (module, e))
         try:
             Profile = getattr(mod, attr)
-        except AttributeError, e:
+        except AttributeError as e:
             raise ImproperlyConfigured('Module "%s" does not define a "%s" '
                                        'class.' % (module, attr))
        
