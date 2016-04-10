@@ -45,7 +45,7 @@ class ProfilenameBackend(BaseMessageBackend):
         #        (attr, self.fieldname))
 
     def get_name(self, user):
-        return getattr(user.get_profile(), self.fieldname)
+        return getattr(user.profile, self.fieldname)
 
     def filter_users(self, names_set):
         filterdict = {self.fieldname + '__in': names_set}
