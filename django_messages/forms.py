@@ -21,15 +21,15 @@ class ComposeForm(forms.Form):
     subject = forms.CharField(label=_(u"Subject"), max_length=120)
     body = forms.CharField(label=_(u"Body"),
         widget=forms.Textarea(attrs={'rows': '12', 'cols':'55'}))
-    
-        
+
+
     def __init__(self, *args, **kwargs):
         recipient_filter = kwargs.pop('recipient_filter', None)
         super(ComposeForm, self).__init__(*args, **kwargs)
         if recipient_filter is not None:
             self.fields['recipient']._recipient_filter = recipient_filter
-    
-                
+
+
     def save(self, sender, parent_msg=None):
         recipients = self.cleaned_data['recipient']
         subject = self.cleaned_data['subject']
