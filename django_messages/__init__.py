@@ -5,7 +5,7 @@ from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.utils import importlib
 
-__version__ = pkg_resources.resource_string('django_messages', 'version.txt').strip()
+__version__ = pkg_resources.resource_string('django_messages', 'version.txt').strip().decode('utf-8')
 
 
 def _version_tuple(version):
